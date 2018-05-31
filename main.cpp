@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int romanToInt(string input);
+int romanToInt(const string &input);
 string intToRoman(int input);
 
 int main() {
@@ -92,7 +92,7 @@ int main() {
  * Takes in a capitalized string that represents a roman numeral
  * and returns the corresponding integer value.
  */
-int romanToInt(string input) {
+int romanToInt(const string &input) {
 
     // Validate input to roman numeral rules
     if (!regex_match(input, regex("M{0,3}(CM)?D?(CD)?C{0,3}(XC)?L?(XL)?X{0,3}(IX)?V?I{0,3}"))) {
@@ -115,7 +115,7 @@ int romanToInt(string input) {
     }
 
     // The number of characters to split off the front; equals either 1 or 2
-    int split;
+    unsigned int split;
 
     // Test first two chars for special subtraction combinations
     if (regex_match(input.substr(0, 2), regex("(IV|IX|XL|XC|CD|CM)"))) {
